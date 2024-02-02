@@ -29,9 +29,13 @@
     }
 }
 
-.page-header__container {
+.page-header__container,
+.events__container {
     box-sizing: border-box;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 auto; /* выравнивание шапки по центру */
     padding-left: 40px;
     padding-right: 40px;
@@ -40,7 +44,7 @@
 }
 
 .page-header__logo {
-    margin-right: 237px; /* расстояние между лого и текстом (мероприятия, ...) */
+    /* margin-right: 237px;  расстояние между лого и текстом (мероприятия, ...), написали на 3ем уроке, убрали на 4ом уроке */
     display: inline-block;
     width: 202px;
     height: 147px;
@@ -53,7 +57,7 @@
 
 .page-header__nav {
     display: inline-block;
-    margin-right: 230px; /* 307 (было) - расстояние между кнопкой вотий и текстом (мероприятия, ...) */
+    /* margin-right: 230px;  307 (было) - расстояние между кнопкой вотий и текстом (мероприятия, ...), написали на 3ем уроке, убрали на 4ом уроке */
 }
 
 .page-header__nav-link {
@@ -129,4 +133,112 @@
 
 .main-header {
     padding: 100px 0;
+}
+
+.events {
+    padding-top: 147px;
+}
+
+.events__container {
+    flex-direction: column;
+}
+
+.events__title {
+    align-self: center;
+}
+
+.title {
+    margin: 0 0 150px;
+    box-sizing: border-box;
+    padding: 7px 45px 9px;
+    max-width: 624px;
+    width: 100%;
+    text-align: center;
+    background-color: #1f1e1e;
+    text-transform: uppercase;
+    font-family: Lora;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px 60px; /*120 - расстояние по вертикали м.у карточками, 60 - по горизонтали*/
+}
+
+.listing__card-event {
+    max-width: 405px;
+    width: calc(33.333% - 40px); /*40px - расстояние между карточками, так как на линии 3 карточки, а расстояние м.у карточками 60 (60+60=120, 120/3 = 40)*/
+}
+
+.card-event {
+    box-sizing: border-box;
+}
+
+.card-event__link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-event__link:hover .card-event__title {
+    color: #a51505;
+    text-decoration-color: #a51505;
+}
+
+.card-event__picture {
+    position: relative;
+    display: block;
+    margin-bottom: 25px;
+}
+
+.card-event__picture::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 107.160%; /*размер картинки: width: 405px, height: 434px; ((434/405)*100 = 107.160)*/
+}
+
+.card-event__picture-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-event__title {
+    margin: 0 0 auto;
+    min-height: 64px;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #1f1e1e;
+    transition: color 0.2s, text-decoration-color 0.23s;
+}
+
+.card-event__text {
+    margin: 15px 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    color: #1f1e1e;
+}
+
+.card-event__time {
+    margin-top: auto;
+    display: block;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    color: #1f1e1e;
 }
